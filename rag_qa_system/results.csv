@@ -1,0 +1,33 @@
+question,answer,sources,latency_s,correct
+What is the main topic of the first document?,The first document is a collection of lecture notes compiled by committee members for their teaching assignments.,"[{'source': 'lect notes 2.pdf', 'page': 2, 'score': 0.418}, {'source': 'Lect Notes.pdf', 'page': 108, 'score': 0.38}, {'source': 'Lect Notes.pdf', 'page': 105, 'score': 0.358}]",2.93,1
+What is the definition of a neural network?,"A neural network is a computational model inspired by biological neural networks, consisting of interconnected neurons (nodes) arranged in layers—input, hidden, and output—that process inputs through weighted sums and activation functions.","[{'source': 'lect notes 6.pdf', 'page': 47, 'score': 0.669}, {'source': 'lect notes 6.pdf', 'page': 45, 'score': 0.652}, {'source': 'lect notes 6.pdf', 'page': 45, 'score': 0.608}]",0.79,1
+What is AI?,"Artificial Intelligence (AI) is a branch of science and computer science that deals with creating machines that can exhibit intelligent behaviour. It involves giving computers the capacity to think, learn, and act like humans—solving complex problems, analysing large amounts of data, making decisions, and performing creative tasks. In short, AI is the ability of computers or other machines to behave in ways that appear intelligent, often mimicking human thinking and decision‑making.","[{'source': 'lect notes 2.pdf', 'page': 4, 'score': 0.772}, {'source': 'lect notes 4.pdf', 'page': 7, 'score': 0.771}, {'source': 'lect notes 3.pdf', 'page': 1, 'score': 0.768}]",1.2,1
+How many types of ML algorithms?,There are **seven** types of machine‑learning algorithms listed in the notes.,"[{'source': 'lect notes 5.pdf', 'page': 12, 'score': 0.629}, {'source': 'lect notes 5.pdf', 'page': 12, 'score': 0.534}, {'source': 'lect notes 5.pdf', 'page': 17, 'score': 0.497}]",1,1
+What is the difference between supervised and unsupervised learning?,"Supervised learning and unsupervised learning differ mainly in the type of data they use and the goals they pursue:
+
+| Aspect | Supervised Learning | Unsupervised Learning |
+|--------|---------------------|-----------------------|
+| **Data** | Trained on **labeled** data (input + corresponding output). | Trained on **unlabeled** data (only input). |
+| **Feedback** | Receives direct feedback to check if its predictions are correct. | Does not receive any feedback. |
+| **Goal** | To train a model that can **predict the output** for new data. | To discover **hidden patterns and useful insights** from the data. |
+| **Typical Tasks** | Classification and regression problems. | Clustering and association problems. |
+| **Use‑case** | When both input and output are known. | When only input data is available and no output labels exist. |
+| **Result Accuracy** | Generally produces more accurate results. | May give less accurate results. |
+
+These points capture the key differences as described in the lecture notes.","[{'source': 'lect notes 6.pdf', 'page': 61, 'score': 0.732}, {'source': 'lect notes 6.pdf', 'page': 58, 'score': 0.718}, {'source': 'lect notes 6.pdf', 'page': 61, 'score': 0.708}]",1.06,1
+How can we evaluate our models?,"We evaluate our models mainly by measuring how well they predict new data.  
+The most common way is to compute the **classification accuracy (ACC)**, i.e., the fraction of correctly classified instances in a test set, or equivalently the **mis‑classification error** \(ERR = 1-ACC\).  
+To obtain a reliable estimate of this performance we usually split the data into a training set and a **validation set** (or use **cross‑validation** when data are scarce).  
+Other evaluation tools mentioned are **information criteria** that give a measure of how well a trained model is expected to generalize.  
+
+So, we evaluate models by:
+
+1. Splitting data into training/validation (or using cross‑validation).  
+2. Computing accuracy (or error) on the validation data.  
+3. Optionally using information‑criterion metrics to compare models.","[{'source': 'lect notes 5.pdf', 'page': 18, 'score': 0.507}, {'source': 'lect notes 5.pdf', 'page': 16, 'score': 0.495}, {'source': 'lect notes 6.pdf', 'page': 81, 'score': 0.482}]",1.54,1
+What is meant by training ?,"Training is the process of learning. In a machine‑learning context it refers to a set of examples, each consisting of an input object (usually a vector) and a desired output value (the supervisory signal). A **training set** is a collection of such examples that is used to discover potentially predictive relationships.  
+
+In a broader, organisational sense, training can also mean peer‑to‑peer learning, workshops or seminars where employees share key learnings, awareness training, or co‑mentoring sessions in which teams coach each other and swap expertise.","[{'source': 'lect notes 6.pdf', 'page': 98, 'score': 0.584}, {'source': 'Lect Notes.pdf', 'page': 116, 'score': 0.564}, {'source': 'lect notes 4.pdf', 'page': 33, 'score': 0.551}]",1.76,1
+What is fuzzy logic?,"Fuzzy logic is a form of logic that uses truth values ranging continuously from 0 to 1 (instead of just true = 1 or false = 0). It is derived from fuzzy set theory, where elements can have varying degrees of membership in a set, and it is used to describe and reason about vague or imprecise concepts rather than precise, binary ones.","[{'source': 'lect notes 2.pdf', 'page': 107, 'score': 0.721}, {'source': 'lect notes 3.pdf', 'page': 124, 'score': 0.704}, {'source': 'lect notes 2.pdf', 'page': 77, 'score': 0.677}]",2.01,1
+What is digital logic design?,I don't know.,"[{'source': 'lect notes 4.pdf', 'page': 8, 'score': 0.517}, {'source': 'lect notes 2.pdf', 'page': 46, 'score': 0.502}, {'source': 'lect notes 3.pdf', 'page': 89, 'score': 0.48}]",1.04,1
+What do you know about DSA?,I don't know.,"[{'source': 'lect notes 4.pdf', 'page': 31, 'score': 0.346}, {'source': 'lect notes 2.pdf', 'page': 74, 'score': 0.342}, {'source': 'lect notes 4.pdf', 'page': 33, 'score': 0.317}]",0.8,1
