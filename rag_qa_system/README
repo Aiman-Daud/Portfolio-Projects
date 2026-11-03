@@ -1,0 +1,50 @@
+# RAG Question-Answering System
+
+A retrieval-augmented generation (RAG) service that answers questions over a set of PDF documents and cites the source file and page. Exposed as a REST API with FastAPI.
+
+## How it works
+1. **Ingest:** PDFs in `data/` are split into overlapping 800-character chunks (150-character overlap).
+2. **Embed + index:** chunks are embedded with `all-MiniLM-L6-v2` (sentence-transformers) and stored in a FAISS vector index.
+3. **Retrieve:** a question is embedded and the top-3 most similar chunks are fetched.
+4. **Generate:** the chunks and question go to an LLM (gpt-oss-20b via the Groq API), prompted to answer only from the retrieved context and to say so when the answer is not there.
+5. **Serve:** `POST /ask` returns the answer, the source files and pages, and the response latency.
+
+## Tech stack
+Python, sentence-transformers, FAISS, FastAPI, Uvicorn, Groq API (gpt-oss-20b), pypdf
+
+## Run locally
+```bash
+python -m venv venv
+venv\Scripts\activate            # Mac/Linux: source venv/bin/activate
+pip install -r requirements.txt
+# put your PDFs in data/
+python ingest.py
+set GROQ_API_KEY=your_key        # PowerShell: $env:GROQ_API_KEY="your_key"
+uvicorn main:app --reload
+```
+Open http://localhost:8000/docs and try `POST /ask`.
+
+## Example request
+```bash
+curl -X POST http://localhost:8000/ask -H "Content-Type: application/json" \
+  -d '{"question": "What is a neural network?"}'
+```
+
+## Evaluation
+Ran 10 test questions over the indexed PDF documents. Answers were checked manually against the source text.
+
+| Metric | Result |
+|---|---|
+| Correct answers | 10/10 |
+
+This is a small, manually checked test set. It shows the pipeline works end to end but is not a statistical benchmark.
+
+## Monitoring and retraining plan
+- Every query is logged to `logs/queries.jsonl` (time, question, top retrieval score, latency).
+- Watch for rising latency, many low top-scores (the documents don't cover what users ask), and user-reported bad answers.
+- Re-run `python ingest.py` whenever documents are added or changed. Revisit the chunk size or embedding model if retrieval quality drops.
+
+## Limitations and next steps
+- Small evaluation set; next step is a larger question set and an automated retrieval-quality metric.
+- No re-ranking and no authentication on the API.
+- Next: containerize with Docker and deploy to a cloud platform.
